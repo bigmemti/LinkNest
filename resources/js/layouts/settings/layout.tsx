@@ -4,23 +4,24 @@ import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
+import { KeyRound, SunMoon, User } from 'lucide-react';
 import { type PropsWithChildren } from 'react';
 
 const sidebarNavItems: NavItem[] = [
     {
         title: 'Profile',
         url: '/settings/profile',
-        icon: null,
+        icon: User,
     },
     {
         title: 'Password',
         url: '/settings/password',
-        icon: null,
+        icon: KeyRound,
     },
     {
         title: 'Appearance',
         url: '/settings/appearance',
-        icon: null,
+        icon: SunMoon,
     },
 ];
 
@@ -50,6 +51,7 @@ export default function SettingsLayout({ children }: PropsWithChildren) {
                                 })}
                             >
                                 <Link href={item.url} prefetch>
+                                    {item.icon && <item.icon />}
                                     {item.title}
                                 </Link>
                             </Button>
